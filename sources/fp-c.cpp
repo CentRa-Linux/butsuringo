@@ -23,8 +23,9 @@ std::tuple<Point, Point> AGGBezier(Point p0, Point p1, Point p2, float tension) 
     b = m0 - (m0 - m1) * dis0;
     l2 = p1 - b;
 
-    ma0 = m0 + l2;
-    ma1 = m1 + l2;
+    ma0 = p1 + ( m0 - b ) * tension;
+    ma1 = p1 + ( m1 - b ) * tension;
 
     return {ma0, ma1};
 }
+
